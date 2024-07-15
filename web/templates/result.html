@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 600px;
+      }
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 18px;
+        color: #555;
+        margin: 10px 0;
+      }
+      .prediction {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 20px 0;
+      }
+      .prediction.fresh {
+        color: #4caf50;
+      }
+      .prediction.rotten {
+        color: #f44336;
+      }
+      .image-container {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      a {
+        color: #1976d2;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #1976d2;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <p>Filename: {{ filename }}</p>
+      <p>
+        Prediction:
+        <span class="prediction {{ 'fresh' if is_fresh else 'rotten' }}">
+          {{ prediction }}
+        </span>
+      </p>
+      <div class="image-container">
+        <img
+          src="{{ url_for('uploaded_file', filename=filename) }}"
+          alt="Uploaded Image"
+        />
+      </div>
+      <a href="{{ url_for('upload_file') }}">Upload another file</a>
+    </div>
+  </body>
+</html>
