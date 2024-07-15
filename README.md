@@ -2,6 +2,7 @@
 
 Copied STUFF from https://github.com/ShaileshDhama/Rotten-v-s-Fresh-Fruit-Detection 🤓
 
+
 This project is a web application that allows users to upload images of fruits and determines whether the fruit is fresh or rotten.
 
 ## Project Structure
@@ -14,6 +15,8 @@ This project is a web application that allows users to upload images of fruits a
 - `result.html`: HTML template for displaying prediction results.
 
 ## Setup
+
+Download the dataset from [here](https://www.mediafire.com/file/e4el970rh330qma/archive.zip/file)
 
 1. Clone the repository:
 
